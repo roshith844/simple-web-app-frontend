@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-signup',
@@ -6,5 +7,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent {
+  constructor(private formBuilder: FormBuilder){
+
+  }
+  signupForm = this.formBuilder.group({
+    name: '',
+    email: '',
+    password: ''
+  })
+
+  onSubmit(){
+    console.log(this.signupForm.value)
+    this.signupForm.reset()
+  }
 
 }
