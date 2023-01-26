@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { BackendManagementService } from 'src/app/services/backend-management.service';
 import { Router } from '@angular/router';
-
+import {Subject} from 'rxjs';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-admin-home',
@@ -10,6 +11,7 @@ import { Router } from '@angular/router';
 })
 export class AdminHomeComponent implements OnInit {
   allUsers: any = []
+  
 
   editUser(userId: any){
     this.apiService.viewEditUser(userId).subscribe((res)=>{
@@ -24,7 +26,10 @@ export class AdminHomeComponent implements OnInit {
       // this.router.navigate['/admin-home']
     })
   }
-constructor(private apiService: BackendManagementService, private router: Router){}
+  logout(){
+    this.authService.logout()
+    }
+constructor(private apiService: BackendManagementService, private router: Router, private authService : AuthService){}
 ngOnInit(): void {
   this.apiService.getUserDetails().subscribe((res)=>{
     console.log(res)

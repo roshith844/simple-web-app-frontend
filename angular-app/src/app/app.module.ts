@@ -14,6 +14,8 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
 import { CreateUserComponent } from './components/create-user/create-user.component';
 import { EditUserComponent } from './components/edit-user/edit-user.component';
 import { HttpClientModule } from '@angular/common/http';
+import { GuardService } from './services/guard.service';
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   declarations: [
@@ -33,9 +35,10 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    
   ],
-  providers: [],
+  providers: [ AuthService, GuardService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

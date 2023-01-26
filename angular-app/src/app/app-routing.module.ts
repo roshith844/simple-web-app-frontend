@@ -11,20 +11,20 @@ import { AdminHomeComponent } from './components/admin-home/admin-home.component
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { CreateUserComponent } from './components/create-user/create-user.component';
 import { EditUserComponent } from './components/edit-user/edit-user.component';
+import { GuardService } from './services/guard.service';
 
 const routes: Routes = [
   {path:'login',component:  LoginComponent },
   {path:'signup',component: SignupComponent },
   {path:'',component: LandingComponent },
-  {path:'home',component:HomeComponent },
+  {path:'home',component:HomeComponent, canActivate: [GuardService] },
 
   {path:'admin-login',component:AdminLoginComponent },
-  {path:'admin-home',component: AdminHomeComponent  },
-  {path:'user-profile',component: UserProfileComponent },
-  {path:'create-user',component: CreateUserComponent },
+  {path:'admin-home',component: AdminHomeComponent,canActivate: [GuardService]  },
+  {path:'user-profile',component: UserProfileComponent, canActivate: [GuardService] },
+  {path:'create-user',component: CreateUserComponent,canActivate: [GuardService] },
 
-  {path:'edit-user',component: EditUserComponent  },
-
+  {path:'edit-user',component: EditUserComponent,canActivate: [GuardService]  },
 ];
 
 @NgModule({

@@ -1,7 +1,10 @@
 <p>admin-home works!</p>
-<button type="button" routerLink="/create-user">create User</button>
+<button type="button" class="btn btn-primary" routerLink="/create-user">create User</button>
+<button (click)="logout()" type="button" class="btn btn-danger">Logout</button>
 <h1>Users</h1>
-<table class="table">
+<div class="container">
+<div class="row">
+<table class="table table-striped table-info">
   <thead>
     <tr>
       <th scope="col">No.</th>
@@ -13,12 +16,13 @@
   </thead>
   <tbody>
     <tr *ngFor="let item of allUsers">
-      <th scope="row">1</th>
+      <td scope="row">1</td>
       <td>{{item.name}}</td>
       <td>{{item.email}}</td>
       <td><button [(ngModel)]="item._id" (click)="editUser(item._id)">edit</button></td>
-      <th> <button [(ngModel)]="item._id" (click)="deleteUser(item._id)"> Delete </button>
-    </th>
+      <td> <button [(ngModel)]="item._id" (click)="deleteUser(item._id)"> Delete </button></td>
     </tr>
   </tbody>
 </table>
+</div>
+</div>
