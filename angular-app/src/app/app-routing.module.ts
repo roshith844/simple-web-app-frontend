@@ -23,7 +23,7 @@ const routes: Routes = [
   {path:'user-profile',component: UserProfileComponent },
   {path:'create-user',component: CreateUserComponent },
 
-  {path:'edit user',component: EditUserComponent  },
+  {path:'edit-user',component: EditUserComponent  },
 
 ];
 
