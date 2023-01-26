@@ -23,12 +23,12 @@ export class BackendManagementService {
     return this.http.post<any>('http://localhost:9000/admin/addUser', data)
   }
   viewEditUser(data: any){
-    return this.http.get<any>('http://localhost:9000/admin/editUser/id')
+    return this.http.get<any>(`http://localhost:9000/admin/editUser/${data}`)
   }
   editUser(data: any){
     return this.http.post<any>('http://localhost:9000/admin/editUser/id', data)
   }
   deleteUser(data: any){
-    return this.http.get<any>('http://localhost:9000/admin//deleteUser/id')
+    return this.http.get<any>(`http://localhost:9000/admin/deleteUser/${data}`)
   }
 }

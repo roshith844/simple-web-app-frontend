@@ -10,6 +10,20 @@ import { Router } from '@angular/router';
 })
 export class AdminHomeComponent implements OnInit {
   allUsers: any = []
+
+  editUser(userId: any){
+    this.apiService.viewEditUser(userId).subscribe((res)=>{
+      console.log(res)
+      // this.apiService.editUser()
+    })
+  }
+  deleteUser(userId: any){
+    this.apiService.deleteUser(userId).subscribe((res)=>{
+      console.log(res)
+      // this.apiService.editUser()
+      // this.router.navigate['/admin-home']
+    })
+  }
 constructor(private apiService: BackendManagementService, private router: Router){}
 ngOnInit(): void {
   this.apiService.getUserDetails().subscribe((res)=>{

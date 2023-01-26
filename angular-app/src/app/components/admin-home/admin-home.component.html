@@ -2,22 +2,23 @@
 <button type="button" routerLink="/create-user">create User</button>
 <h1>Users</h1>
 <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">No.</th>
-        <th scope="col">Name</th>
-        <th scope="col">email</th>
-        <th scope="col"></th>
-        <th scope="col"></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let item of allUsers">
-        <th scope="row">1</th>
-        <td>{{item.name}}</td>
-        <td>{{item.email}}</td>
-        <td><button>edit</button></td>
-        <th >Delete</th>
-      </tr>
-    </tbody>
-  </table>
+  <thead>
+    <tr>
+      <th scope="col">No.</th>
+      <th scope="col">Name</th>
+      <th scope="col">email</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of allUsers">
+      <th scope="row">1</th>
+      <td>{{item.name}}</td>
+      <td>{{item.email}}</td>
+      <td><button [(ngModel)]="item._id" (click)="editUser(item._id)">edit</button></td>
+      <th> <button [(ngModel)]="item._id" (click)="deleteUser(item._id)"> Delete </button>
+    </th>
+    </tr>
+  </tbody>
+</table>
